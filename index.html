@@ -71,143 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-实验七/实验七：远程管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2026-07-12T00:00:00.000Z" itemprop="datePublished">2026-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>姓名：贾国龙 　　学号：22070809</p>
-</blockquote>
-<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
-<li><p>配置和使用SSH等工具进行远程登录、文件传输以及git服务架设等操作</p>
-</li>
-<li><p>体验和完成基本的远程管理任务</p>
-</li>
-</ol>
-<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
-<thead>
-<tr>
-<th align="center">项目</th>
-<th align="center">内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">操作系统</td>
-<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
-</tr>
-<tr>
-<td align="center">网络</td>
-<td align="center">所有虚拟机处于同一Host-Only网络（ 192.168.56.0&#x2F;24 ）</td>
-</tr>
-</tbody></table>
-<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-检查SSH服务状态和基础配置"><a href="#3-1-检查SSH服务状态和基础配置" class="headerlink" title="3.1 检查SSH服务状态和基础配置"></a>3.1 检查SSH服务状态和基础配置</h3><h4 id="3-1-1-检查SSH服务状态"><a href="#3-1-1-检查SSH服务状态" class="headerlink" title="3.1.1 检查SSH服务状态"></a>3.1.1 检查SSH服务状态</h4><blockquote>
-<p>打开node1节点的虚拟机，输入以下命令</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh # 检查服务状态</span><br><span class="line">sudo apt install openssh-server -y # 如未安装</span><br><span class="line">sudo systemctl enable ssh # 设置开机自启</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-1-2-配置SSH服务器"><a href="#3-1-2-配置SSH服务器" class="headerlink" title="3.1.2 配置SSH服务器"></a>3.1.2 配置SSH服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>将以下配置的注释打开，如没有则手动添加</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Port 22 # 默认端口</span><br><span class="line">PermitRootLogin no # 禁止root直接登录</span><br><span class="line">PubkeyAuthentication yes # 允许公钥认证</span><br><span class="line">PasswordAuthentication yes # 允许密码认证</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>重启服务</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-SSH密钥认证配置"><a href="#3-2-SSH密钥认证配置" class="headerlink" title="3.2 SSH密钥认证配置"></a>3.2 SSH密钥认证配置</h3><blockquote>
-<p>运行node2虚拟机，输入以下命令</p>
-</blockquote>
-<h4 id="3-2-1-生成并查看SSH密钥对"><a href="#3-2-1-生成并查看SSH密钥对" class="headerlink" title="3.2.1 生成并查看SSH密钥对"></a>3.2.1 生成并查看SSH密钥对</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;你的邮箱@example.com</span><br><span class="line">ls ~/.ssh/</span><br><span class="line"># id_ed25519（私钥） 和 id_ed25519.pub（公钥）</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-2-将公钥复制到远程服务器"><a href="#3-2-2-将公钥复制到远程服务器" class="headerlink" title="3.2.2 将公钥复制到远程服务器"></a>3.2.2 将公钥复制到远程服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id dev@192.168.56.103</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-3-测试免密登录"><a href="#3-2-3-测试免密登录" class="headerlink" title="3.2.3 测试免密登录"></a>3.2.3 测试免密登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh dev@192.168.56.102</span><br><span class="line"># 应无需密码直接登录</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-文件传输"><a href="#3-3-文件传输" class="headerlink" title="3.3 文件传输"></a>3.3 文件传输</h3><h4 id="3-3-1-使用SCP传输文件"><a href="#3-3-1-使用SCP传输文件" class="headerlink" title="3.3.1 使用SCP传输文件"></a>3.3.1 使用SCP传输文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 上传文件</span><br><span class="line">scp /home/dev/test.txt dev@192.168.56.102:/home/dev/</span><br><span class="line"># 上传目录</span><br><span class="line">scp -r /home/dev/project/ dev@192.168.56.102:/home/dev/</span><br><span class="line"># 下载文件</span><br><span class="line">scp dev@192.168.56.102:/home/dev/log.txt ./</span><br><span class="line"># 下载目录</span><br><span class="line">scp -r dev@192.168.56.102:/home/dev/backup/ ./</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-3-2-使用rsync同步文件"><a href="#3-3-2-使用rsync同步文件" class="headerlink" title="3.3.2 使用rsync同步文件"></a>3.3.2 使用rsync同步文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 安装rsync</span><br><span class="line">sudo apt install rsync -y</span><br><span class="line"># 本地同步</span><br><span class="line">rsync -avz /home/dev/source/ /home/dev/backup/</span><br><span class="line"># 推送到远程</span><br><span class="line">rsync -avz -e ssh /home/dev/project/ dev@192.168.56.102:/home/dev/project/</span><br><span class="line"># 从远程拉取</span><br><span class="line">rsync -avz -e ssh dev@192.168.56.102:/home/dev/logs/ ./logs/</span><br><span class="line"># 保持完全一致（--delete会删除目标中多余的文件）</span><br><span class="line">rsync -avz --delete -e ssh /home/dev/source/ dev@192.168.56.102:/home/dev/dest/</span><br><span class="line"># 排除特定文件</span><br><span class="line">rsync -avz --exclude=&#x27;*.log&#x27; --exclude=&#x27;tmp/&#x27; -e ssh /home/dev/</span><br><span class="line">dev@192.168.56.102:/home/dev/</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
-<thead>
-<tr>
-<th align="center">项</th>
-<th align="center">内容</th>
-<th align="center">结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">完成远程免密登录</td>
-<td align="center">使用SSH服务完成远程免密登录的配置</td>
-<td align="center">✅️完成</td>
-</tr>
-<tr>
-<td align="center">实现文件传输</td>
-<td align="center">使用SCP和rsync在远程登录下完成文件的相互传输</td>
-<td align="center">✅️完成</td>
-</tr>
-</tbody></table>
-<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">内容</th>
-<th align="center">体会</th>
-<th align="center">注意点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SSH远程登录</td>
-<td align="center">SSH是一种保护机制，能够实现远程非对称安全登录并完成较为安全的文件传输功能</td>
-<td align="center">这一底层原理作为github的实现基础</td>
-<td align="center">注意配置文件时的安全问题</td>
-</tr>
-</tbody></table>
-<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
-<li>指令不明确，还需要更多的完成指令的记忆和熟悉。</li>
-</ul>
-<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我对于SSH的登录有了更多的认识，包括公钥私钥、SCP文件传输指令以及rsync同步文件等。</p>
-<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验让我理解了github的底层原理，对于我今后的实际工作有了更进一步的认识。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" data-id="cuidU6pNJ-Wf6o1212XmL8mmG" data-title="实验七：远程管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-实验八/实验八：Web软件部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" class="article-date">
-  <time class="dt-published" datetime="2026-07-12T00:00:00.000Z" itemprop="datePublished">2026-07-12</time>
+  <time class="dt-published" datetime="2026-07-12T11:00:00.000Z" itemprop="datePublished">2026-07-12</time>
 </a>
     
   </div>
@@ -363,7 +230,140 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" data-id="cuidKVGRo_W4And9iOdbebXHc" data-title="实验八：Web软件部署" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" data-id="cuid7JI6j16F_VEA8uiT6h9eb" data-title="实验八：Web软件部署" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验七/实验七：远程管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T10:00:00.000Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>配置和使用SSH等工具进行远程登录、文件传输以及git服务架设等操作</p>
+</li>
+<li><p>体验和完成基本的远程管理任务</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+<tr>
+<td align="center">网络</td>
+<td align="center">所有虚拟机处于同一Host-Only网络（ 192.168.56.0&#x2F;24 ）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-检查SSH服务状态和基础配置"><a href="#3-1-检查SSH服务状态和基础配置" class="headerlink" title="3.1 检查SSH服务状态和基础配置"></a>3.1 检查SSH服务状态和基础配置</h3><h4 id="3-1-1-检查SSH服务状态"><a href="#3-1-1-检查SSH服务状态" class="headerlink" title="3.1.1 检查SSH服务状态"></a>3.1.1 检查SSH服务状态</h4><blockquote>
+<p>打开node1节点的虚拟机，输入以下命令</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh # 检查服务状态</span><br><span class="line">sudo apt install openssh-server -y # 如未安装</span><br><span class="line">sudo systemctl enable ssh # 设置开机自启</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-2-配置SSH服务器"><a href="#3-1-2-配置SSH服务器" class="headerlink" title="3.1.2 配置SSH服务器"></a>3.1.2 配置SSH服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将以下配置的注释打开，如没有则手动添加</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Port 22 # 默认端口</span><br><span class="line">PermitRootLogin no # 禁止root直接登录</span><br><span class="line">PubkeyAuthentication yes # 允许公钥认证</span><br><span class="line">PasswordAuthentication yes # 允许密码认证</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启服务</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-SSH密钥认证配置"><a href="#3-2-SSH密钥认证配置" class="headerlink" title="3.2 SSH密钥认证配置"></a>3.2 SSH密钥认证配置</h3><blockquote>
+<p>运行node2虚拟机，输入以下命令</p>
+</blockquote>
+<h4 id="3-2-1-生成并查看SSH密钥对"><a href="#3-2-1-生成并查看SSH密钥对" class="headerlink" title="3.2.1 生成并查看SSH密钥对"></a>3.2.1 生成并查看SSH密钥对</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;你的邮箱@example.com</span><br><span class="line">ls ~/.ssh/</span><br><span class="line"># id_ed25519（私钥） 和 id_ed25519.pub（公钥）</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-将公钥复制到远程服务器"><a href="#3-2-2-将公钥复制到远程服务器" class="headerlink" title="3.2.2 将公钥复制到远程服务器"></a>3.2.2 将公钥复制到远程服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id dev@192.168.56.103</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-测试免密登录"><a href="#3-2-3-测试免密登录" class="headerlink" title="3.2.3 测试免密登录"></a>3.2.3 测试免密登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh dev@192.168.56.102</span><br><span class="line"># 应无需密码直接登录</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-文件传输"><a href="#3-3-文件传输" class="headerlink" title="3.3 文件传输"></a>3.3 文件传输</h3><h4 id="3-3-1-使用SCP传输文件"><a href="#3-3-1-使用SCP传输文件" class="headerlink" title="3.3.1 使用SCP传输文件"></a>3.3.1 使用SCP传输文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 上传文件</span><br><span class="line">scp /home/dev/test.txt dev@192.168.56.102:/home/dev/</span><br><span class="line"># 上传目录</span><br><span class="line">scp -r /home/dev/project/ dev@192.168.56.102:/home/dev/</span><br><span class="line"># 下载文件</span><br><span class="line">scp dev@192.168.56.102:/home/dev/log.txt ./</span><br><span class="line"># 下载目录</span><br><span class="line">scp -r dev@192.168.56.102:/home/dev/backup/ ./</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-使用rsync同步文件"><a href="#3-3-2-使用rsync同步文件" class="headerlink" title="3.3.2 使用rsync同步文件"></a>3.3.2 使用rsync同步文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 安装rsync</span><br><span class="line">sudo apt install rsync -y</span><br><span class="line"># 本地同步</span><br><span class="line">rsync -avz /home/dev/source/ /home/dev/backup/</span><br><span class="line"># 推送到远程</span><br><span class="line">rsync -avz -e ssh /home/dev/project/ dev@192.168.56.102:/home/dev/project/</span><br><span class="line"># 从远程拉取</span><br><span class="line">rsync -avz -e ssh dev@192.168.56.102:/home/dev/logs/ ./logs/</span><br><span class="line"># 保持完全一致（--delete会删除目标中多余的文件）</span><br><span class="line">rsync -avz --delete -e ssh /home/dev/source/ dev@192.168.56.102:/home/dev/dest/</span><br><span class="line"># 排除特定文件</span><br><span class="line">rsync -avz --exclude=&#x27;*.log&#x27; --exclude=&#x27;tmp/&#x27; -e ssh /home/dev/</span><br><span class="line">dev@192.168.56.102:/home/dev/</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">完成远程免密登录</td>
+<td align="center">使用SSH服务完成远程免密登录的配置</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实现文件传输</td>
+<td align="center">使用SCP和rsync在远程登录下完成文件的相互传输</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SSH远程登录</td>
+<td align="center">SSH是一种保护机制，能够实现远程非对称安全登录并完成较为安全的文件传输功能</td>
+<td align="center">这一底层原理作为github的实现基础</td>
+<td align="center">注意配置文件时的安全问题</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>指令不明确，还需要更多的完成指令的记忆和熟悉。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我对于SSH的登录有了更多的认识，包括公钥私钥、SCP文件传输指令以及rsync同步文件等。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验让我理解了github的底层原理，对于我今后的实际工作有了更进一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" data-id="cuid2r3Xm_TklM1DE4Q7ZYwBd" data-title="实验七：远程管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -378,7 +378,7 @@
     <article id="post-实验六/实验六：Linux环境配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time class="dt-published" datetime="2026-07-11T00:00:00.000Z" itemprop="datePublished">2026-07-11</time>
+  <time class="dt-published" datetime="2026-07-11T10:00:00.000Z" itemprop="datePublished">2026-07-11</time>
 </a>
     
   </div>
@@ -505,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="cuidr32Pw7d8npSnmSx4jpJnq" data-title="实验六：Linux环境配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="cuid6CIdh5PsPPZBfcjG3EUQN" data-title="实验六：Linux环境配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -520,7 +520,7 @@
     <article id="post-实验五/实验五：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2026-07-10T00:00:00.000Z" itemprop="datePublished">2026-07-10</time>
+  <time class="dt-published" datetime="2026-07-10T10:00:00.000Z" itemprop="datePublished">2026-07-10</time>
 </a>
     
   </div>
@@ -653,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/10/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidRLRTM1_wfMebP8GQ1veqT" data-title="实验五：Linux账户与权限管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/10/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidHl-8yLRLqbnU9gh9oxfTX" data-title="实验五：Linux账户与权限管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -668,7 +668,7 @@
     <article id="post-实验四/实验四：Linux基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time class="dt-published" datetime="2026-07-10T00:00:00.000Z" itemprop="datePublished">2026-07-10</time>
+  <time class="dt-published" datetime="2026-07-10T09:00:00.000Z" itemprop="datePublished">2026-07-10</time>
 </a>
     
   </div>
@@ -767,130 +767,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cuidYgZkfoZVfm9cWjKVA3M3F" data-title="实验四：Linux基础操作" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-实验一/实验一：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2026-07-09T00:00:00.000Z" itemprop="datePublished">2026-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">实验一：Web环境配置与静态节点构建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>姓名：贾国龙 学号：22070809</p>
-<h2 id="1-实验目的"><a href="#1-实验目的" class="headerlink" title="1. 实验目的"></a>1. 实验目的</h2><p>本次实验旨在自行安装好web环境后，自行开发并运行一个web博客，了解和掌握web开发环境的配置，理解web软件的B&#x2F;S框架架构特点以及静态节点和动态节点的区别。</p>
-<h3 id="2-实验环境"><a href="#2-实验环境" class="headerlink" title="2.  实验环境:"></a>2.  <strong>实验环境:</strong></h3><table>
-<thead>
-<tr>
-<th align="center">内容</th>
-<th align="center">版本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">操作系统</td>
-<td align="center">Windows 11 专业版 25H2</td>
-</tr>
-<tr>
-<td align="center">运行环境</td>
-<td align="center">Node.js 24.18.0</td>
-</tr>
-<tr>
-<td align="center">包管理器</td>
-<td align="center">npm 11.16.0</td>
-</tr>
-<tr>
-<td align="center">代码管理</td>
-<td align="center">Git 2.55.0.windows.2</td>
-</tr>
-<tr>
-<td align="center">构建工具及本地服务器</td>
-<td align="center">Hexo-CLI 4.3.2</td>
-</tr>
-<tr>
-<td align="center">文本编辑器</td>
-<td align="center">VS Code 1.127.0</td>
-</tr>
-</tbody></table>
-<h3 id="3-实验过程"><a href="#3-实验过程" class="headerlink" title="3.  实验过程"></a>3.  实验过程</h3><h4 id="3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环"><a href="#3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环" class="headerlink" title="3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环"></a>3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环</h4><h5 id="3-1-1安装Node和npm并验证是否安装成功"><a href="#3-1-1安装Node和npm并验证是否安装成功" class="headerlink" title="3.1.1安装Node和npm并验证是否安装成功"></a>3.1.1安装Node和npm并验证是否安装成功</h5><h5 id="3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱"><a href="#3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱" class="headerlink" title="3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱"></a>3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱</h5><h5 id="3-1-3安装Hexo-CLI并验证是否安装成功"><a href="#3-1-3安装Hexo-CLI并验证是否安装成功" class="headerlink" title="3.1.3安装Hexo-CLI并验证是否安装成功"></a>3.1.3安装Hexo-CLI并验证是否安装成功</h5><h4 id="3-2-初始化博客项目"><a href="#3-2-初始化博客项目" class="headerlink" title="3.2 初始化博客项目"></a>3.2 初始化博客项目</h4><p>首先创建Blog文件夹，然后初始化博客项目，并安装项目依赖，完成后得到项目结构如下，可知安装成功。</p>
-<h4 id="3-3本地预览博客"><a href="#3-3本地预览博客" class="headerlink" title="3.3本地预览博客"></a>3.3本地预览博客</h4><h5 id="3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览"><a href="#3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览" class="headerlink" title="3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览"></a>3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览</h5><h5 id="3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"><a href="#3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览" class="headerlink" title="3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"></a>3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览</h5><h4 id="3-4更换主题（可选）"><a href="#3-4更换主题（可选）" class="headerlink" title="3.4更换主题（可选）"></a>3.4更换主题（可选）</h4><p>安装NexT主题</p>
-<p>在next的文件夹下找到配置文件，修改不同的主题</p>
-<p>启动server服务，即可得到不同主题的web网站</p>
-<h4 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4.  实验结果"></a>4.  实验结果</h4><p>最终，我通过下载相关软件、完成本地环境的搭建，使用命令提示符执行相关命令，获取到一个自己的博客静态网站节点，并实现主题的切换，最终结果如下图所示</p>
-<h4 id="5-知识总结"><a href="#5-知识总结" class="headerlink" title="5.  知识总结"></a>5.  知识总结</h4><table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">内容</th>
-<th align="center">意义</th>
-<th align="center">注意事项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">下载文件</td>
-<td align="center">国外的网站下载速度一般都很慢，因此要尽可能使用国内的镜像软件下载</td>
-<td align="center">大大提高工作效率</td>
-<td align="center">找到正确的、安全的镜像网站</td>
-</tr>
-<tr>
-<td align="center">静态节点</td>
-<td align="center">指将本地的代码文件转化为网站上的可视化图形</td>
-<td align="center">兼顾对外展示和对内维护</td>
-<td align="center">构建、维护的代码仍需要不断加强学习</td>
-</tr>
-<tr>
-<td align="center">命令提示符</td>
-<td align="center">命令提示符不仅用于打开本地文件，也可用于从网上下载资源。</td>
-<td align="center">将图形化页面转为最原始的代码页面，提高程序员思维能力</td>
-<td align="center">各个命令要不断加以总结和记忆</td>
-</tr>
-<tr>
-<td align="center">Hexo-CLI</td>
-<td align="center">作为博客网站部署的地基，配置好初始化的博客项目，以及执行相关命令和提供本地预览服务</td>
-<td align="center">提高程序员搭建网站的效率</td>
-<td align="center">要知其然更要知其所以然，要理解hexo的背后工作逻辑</td>
-</tr>
-<tr>
-<td align="center">Git代码管理和版本控制</td>
-<td align="center">Git的速度极快、且只是对比差异项座位版本区别，具有高效率、小体积等优点</td>
-<td align="center">给大型项目以更多的容错率</td>
-<td align="center">注意git的使用项目和说明手册</td>
-</tr>
-</tbody></table>
-<h4 id="6-出现问题"><a href="#6-出现问题" class="headerlink" title="6.  出现问题"></a>6.  出现问题</h4><p>本次实验中，我主要出现了以下问题，并提供了相应的解决方案：</p>
-<ul>
-<li>环境配置问题，面对国外网站打不开、下载慢的问题，我采用了国内镜像网站作为替代。</li>
-<li>代码编辑问题，有许多代码书写规范，我翻了很多错误，然后我查阅相关资料并自学后一一改正。</li>
-</ul>
-<h4 id="7-心得体会"><a href="#7-心得体会" class="headerlink" title="7.  心得体会"></a>7.  <strong>心得体会</strong></h4><p>本次实验中，我跟着实验手册完成了一个最简单博客网站的搭建，但是如同雾里看花始终不清楚内在逻辑，因此下一步我将搞明白这一本地博客、web环境的底层逻辑。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidTs-nB_HWis1NHqN_L3l5g" data-title="实验一：Web环境配置与静态节点构建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cuidOcgQ3AygoRJzXO1y9leKC" data-title="实验四：Linux基础操作" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -905,7 +782,7 @@
     <article id="post-实验三/实验三：虚拟机安装与配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time class="dt-published" datetime="2026-07-09T00:00:00.000Z" itemprop="datePublished">2026-07-09</time>
+  <time class="dt-published" datetime="2026-07-09T10:00:00.000Z" itemprop="datePublished">2026-07-09</time>
 </a>
     
   </div>
@@ -1087,7 +964,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-id="cuidLCZI0k7F8mln34i-qQ_N3" data-title="实验三：虚拟机的安装与使用" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-id="cuidxK5vK8_IUkUhAMFaq2vyX" data-title="实验三：虚拟机的安装与使用" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1102,7 +979,7 @@
     <article id="post-实验二/实验二：代码编辑与管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2026-07-09T00:00:00.000Z" itemprop="datePublished">2026-07-09</time>
+  <time class="dt-published" datetime="2026-07-09T09:00:00.000Z" itemprop="datePublished">2026-07-09</time>
 </a>
     
   </div>
@@ -1233,7 +1110,130 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" data-id="cuidZHPUQkTq0i9bkV3U2VVTt" data-title="实验二：代码编辑与管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" data-id="cuidg5QSNPH4IsAZx3jerqNpc" data-title="实验二：代码编辑与管理" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验一/实验一：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-09T08:00:00.000Z" itemprop="datePublished">2026-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">实验一：Web环境配置与静态节点构建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>姓名：贾国龙 学号：22070809</p>
+<h2 id="1-实验目的"><a href="#1-实验目的" class="headerlink" title="1. 实验目的"></a>1. 实验目的</h2><p>本次实验旨在自行安装好web环境后，自行开发并运行一个web博客，了解和掌握web开发环境的配置，理解web软件的B&#x2F;S框架架构特点以及静态节点和动态节点的区别。</p>
+<h3 id="2-实验环境"><a href="#2-实验环境" class="headerlink" title="2.  实验环境:"></a>2.  <strong>实验环境:</strong></h3><table>
+<thead>
+<tr>
+<th align="center">内容</th>
+<th align="center">版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Windows 11 专业版 25H2</td>
+</tr>
+<tr>
+<td align="center">运行环境</td>
+<td align="center">Node.js 24.18.0</td>
+</tr>
+<tr>
+<td align="center">包管理器</td>
+<td align="center">npm 11.16.0</td>
+</tr>
+<tr>
+<td align="center">代码管理</td>
+<td align="center">Git 2.55.0.windows.2</td>
+</tr>
+<tr>
+<td align="center">构建工具及本地服务器</td>
+<td align="center">Hexo-CLI 4.3.2</td>
+</tr>
+<tr>
+<td align="center">文本编辑器</td>
+<td align="center">VS Code 1.127.0</td>
+</tr>
+</tbody></table>
+<h3 id="3-实验过程"><a href="#3-实验过程" class="headerlink" title="3.  实验过程"></a>3.  实验过程</h3><h4 id="3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环"><a href="#3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环" class="headerlink" title="3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环"></a>3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环</h4><h5 id="3-1-1安装Node和npm并验证是否安装成功"><a href="#3-1-1安装Node和npm并验证是否安装成功" class="headerlink" title="3.1.1安装Node和npm并验证是否安装成功"></a>3.1.1安装Node和npm并验证是否安装成功</h5><h5 id="3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱"><a href="#3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱" class="headerlink" title="3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱"></a>3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱</h5><h5 id="3-1-3安装Hexo-CLI并验证是否安装成功"><a href="#3-1-3安装Hexo-CLI并验证是否安装成功" class="headerlink" title="3.1.3安装Hexo-CLI并验证是否安装成功"></a>3.1.3安装Hexo-CLI并验证是否安装成功</h5><h4 id="3-2-初始化博客项目"><a href="#3-2-初始化博客项目" class="headerlink" title="3.2 初始化博客项目"></a>3.2 初始化博客项目</h4><p>首先创建Blog文件夹，然后初始化博客项目，并安装项目依赖，完成后得到项目结构如下，可知安装成功。</p>
+<h4 id="3-3本地预览博客"><a href="#3-3本地预览博客" class="headerlink" title="3.3本地预览博客"></a>3.3本地预览博客</h4><h5 id="3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览"><a href="#3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览" class="headerlink" title="3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览"></a>3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览</h5><h5 id="3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"><a href="#3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览" class="headerlink" title="3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"></a>3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览</h5><h4 id="3-4更换主题（可选）"><a href="#3-4更换主题（可选）" class="headerlink" title="3.4更换主题（可选）"></a>3.4更换主题（可选）</h4><p>安装NexT主题</p>
+<p>在next的文件夹下找到配置文件，修改不同的主题</p>
+<p>启动server服务，即可得到不同主题的web网站</p>
+<h4 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4.  实验结果"></a>4.  实验结果</h4><p>最终，我通过下载相关软件、完成本地环境的搭建，使用命令提示符执行相关命令，获取到一个自己的博客静态网站节点，并实现主题的切换，最终结果如下图所示</p>
+<h4 id="5-知识总结"><a href="#5-知识总结" class="headerlink" title="5.  知识总结"></a>5.  知识总结</h4><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">意义</th>
+<th align="center">注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">下载文件</td>
+<td align="center">国外的网站下载速度一般都很慢，因此要尽可能使用国内的镜像软件下载</td>
+<td align="center">大大提高工作效率</td>
+<td align="center">找到正确的、安全的镜像网站</td>
+</tr>
+<tr>
+<td align="center">静态节点</td>
+<td align="center">指将本地的代码文件转化为网站上的可视化图形</td>
+<td align="center">兼顾对外展示和对内维护</td>
+<td align="center">构建、维护的代码仍需要不断加强学习</td>
+</tr>
+<tr>
+<td align="center">命令提示符</td>
+<td align="center">命令提示符不仅用于打开本地文件，也可用于从网上下载资源。</td>
+<td align="center">将图形化页面转为最原始的代码页面，提高程序员思维能力</td>
+<td align="center">各个命令要不断加以总结和记忆</td>
+</tr>
+<tr>
+<td align="center">Hexo-CLI</td>
+<td align="center">作为博客网站部署的地基，配置好初始化的博客项目，以及执行相关命令和提供本地预览服务</td>
+<td align="center">提高程序员搭建网站的效率</td>
+<td align="center">要知其然更要知其所以然，要理解hexo的背后工作逻辑</td>
+</tr>
+<tr>
+<td align="center">Git代码管理和版本控制</td>
+<td align="center">Git的速度极快、且只是对比差异项座位版本区别，具有高效率、小体积等优点</td>
+<td align="center">给大型项目以更多的容错率</td>
+<td align="center">注意git的使用项目和说明手册</td>
+</tr>
+</tbody></table>
+<h4 id="6-出现问题"><a href="#6-出现问题" class="headerlink" title="6.  出现问题"></a>6.  出现问题</h4><p>本次实验中，我主要出现了以下问题，并提供了相应的解决方案：</p>
+<ul>
+<li>环境配置问题，面对国外网站打不开、下载慢的问题，我采用了国内镜像网站作为替代。</li>
+<li>代码编辑问题，有许多代码书写规范，我翻了很多错误，然后我查阅相关资料并自学后一一改正。</li>
+</ul>
+<h4 id="7-心得体会"><a href="#7-心得体会" class="headerlink" title="7.  心得体会"></a>7.  <strong>心得体会</strong></h4><p>本次实验中，我跟着实验手册完成了一个最简单博客网站的搭建，但是如同雾里看花始终不清楚内在逻辑，因此下一步我将搞明白这一本地博客、web环境的底层逻辑。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidfG6-Pn4Q6XOZ1wKqEbrgf" data-title="实验一：Web环境配置与静态节点构建" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1276,11 +1276,11 @@
       <ul>
         
           <li>
-            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/">实验八：Web软件部署</a>
           </li>
         
           <li>
-            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/">实验八：Web软件部署</a>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
           </li>
         
           <li>
