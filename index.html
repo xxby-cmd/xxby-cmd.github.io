@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-实验四/实验四：Linux基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.221Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验四：Linux基础操作"><a href="#实验四：Linux基础操作" class="headerlink" title="实验四：Linux基础操作"></a>实验四：Linux基础操作</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>使用命令行进行文件导航、软件包安装等，</p>
+</li>
+<li><p>了解和实践命令行的基本使用。</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-首先明确Linux系统的命令行基本命令"><a href="#3-1-首先明确Linux系统的命令行基本命令" class="headerlink" title="3.1 首先明确Linux系统的命令行基本命令"></a>3.1 首先明确Linux系统的命令行基本命令</h3><h4 id="3-1-1-登录与查看系统信息"><a href="#3-1-1-登录与查看系统信息" class="headerlink" title="3.1.1 登录与查看系统信息"></a>3.1.1 登录与查看系统信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">whoami # 查看当前用户</span><br><span class="line">uname -a # 查看内核与架构信息</span><br><span class="line">lsb_release -a # 查看Ubuntu版本</span><br><span class="line">hostname # 查看主机名</span><br><span class="line">pwd # 查看当前工作目录</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-2-文件与目录的基本操作"><a href="#3-1-2-文件与目录的基本操作" class="headerlink" title="3.1.2 文件与目录的基本操作"></a>3.1.2 文件与目录的基本操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls -lh # 列出文件（详细信息，易读大小）</span><br><span class="line">cd ~ # 切换到主目录</span><br><span class="line">mkdir test_dir # 创建目录</span><br><span class="line">touch test.txt # 创建空文件</span><br><span class="line">cp test.txt test_copy.txt # 复制文件</span><br><span class="line">mv test.txt /tmp/ # 移动文件</span><br><span class="line">rm -f test.txt # 删除文件</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意 rm -rf 命令会永久删除文件且不可恢复，请谨慎使用！</p>
+</blockquote>
+<h4 id="3-1-3-查看系统资源状态"><a href="#3-1-3-查看系统资源状态" class="headerlink" title="3.1.3 查看系统资源状态"></a>3.1.3 查看系统资源状态</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">free -h # 查看内存使用</span><br><span class="line">df -h # 查看磁盘使用</span><br><span class="line">top # 查看进程和资源占用（按q退出）</span><br><span class="line">du -sh * # 查看当前目录下各子目录的大小</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-实际使用命令"><a href="#3-2-实际使用命令" class="headerlink" title="3.2 实际使用命令"></a>3.2 实际使用命令</h3><blockquote>
+<p>打开VirtualBox软件，运行虚拟机，然后在里面依次输入上述命令进行实践</p>
+</blockquote>
+<h4 id="3-2-1-登录与查看系统信息"><a href="#3-2-1-登录与查看系统信息" class="headerlink" title="3.2.1 登录与查看系统信息"></a>3.2.1 登录与查看系统信息</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%9B%9B/image.png" alt="alt text"></p>
+<h4 id="3-2-2-文件与目录的基本操作"><a href="#3-2-2-文件与目录的基本操作" class="headerlink" title="3.2.2 文件与目录的基本操作"></a>3.2.2 文件与目录的基本操作</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-1.png" alt="alt text"></p>
+<h4 id="3-2-3-查看系统资源状态"><a href="#3-2-3-查看系统资源状态" class="headerlink" title="3.2.3 查看系统资源状态"></a>3.2.3 查看系统资源状态</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-2.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E5%9B%9B/image-3.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">认识Linux系统命令行</td>
+<td align="center">了解和掌握Linux命令行的基本操作指令，明确基本命令的使用规范</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实践操作命令行</td>
+<td align="center">切实在Linux系统下完成命令行的基本操作</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">命令行操作</td>
+<td align="center">关于Linux系统的基本操作命令的掌握</td>
+<td align="center">Linux具有很多的操作命令，这些都需要自己去不断熟悉和认识，并且需要实践</td>
+<td align="center">Linux操作命令具有严格的校准性，一定要保证正确性</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>虚拟机下的Linux系统，其文件有时候并不一定能够特别明显的像图形化页面显示出来，因此需要我们转变以往的图形化思维。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了linux操作系统的一些基本操作命令，还需要取理解掌握更多的相关命令。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验再次加深了我纯代码页面的理解，减少了图形化界面的依赖程度，以及对linux操作系统有了更深一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cuidAJL9qCDxXOglHuwfIrgjD" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验六/实验六：Linux环境配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.219Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验六：Linux环境配置"><a href="#实验六：Linux环境配置" class="headerlink" title="实验六：Linux环境配置"></a>实验六：Linux环境配置</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>使用命令行对系统进行个性化配置，</p>
+</li>
+<li><p>了解和实践各类常用系统配置文件、用户配置文件、环境变量等的管理</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-首先明确Linux系统的相关命令"><a href="#3-1-首先明确Linux系统的相关命令" class="headerlink" title="3.1 首先明确Linux系统的相关命令"></a>3.1 首先明确Linux系统的相关命令</h3><h4 id="3-1-1-查看环境变量"><a href="#3-1-1-查看环境变量" class="headerlink" title="3.1.1 查看环境变量"></a>3.1.1 查看环境变量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env # 查看所有环境变量</span><br><span class="line">echo $PATH # 查看PATH变量</span><br><span class="line">echo $HOME # 查看主目录</span><br><span class="line">echo $USER # 查看当前用户名</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-2-临时设置环境变量"><a href="#3-1-2-临时设置环境变量" class="headerlink" title="3.1.2 临时设置环境变量"></a>3.1.2 临时设置环境变量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/home/dev/mybin # 临时添加PATH</span><br><span class="line">export MY_VAR=&quot;Hello World&quot; # 临时创建变量</span><br><span class="line">echo $MY_VAR # 验证</span><br><span class="line">unset MY_VAR # 删除变量</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-永久设置环境变量（用户级）"><a href="#3-1-3-永久设置环境变量（用户级）" class="headerlink" title="3.1.3 永久设置环境变量（用户级）"></a>3.1.3 永久设置环境变量（用户级）</h4><table>
+<thead>
+<tr>
+<th align="center">配置文件</th>
+<th align="center">加载时机</th>
+<th align="center">作用范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">~&#x2F;.bashrc</td>
+<td align="center">每次打开新终端时执行</td>
+<td align="center">当前用户</td>
+</tr>
+<tr>
+<td align="center">~&#x2F;.profile</td>
+<td align="center">用户登录时执行一次</td>
+<td align="center">当前用户</td>
+</tr>
+<tr>
+<td align="center">~&#x2F;.bash_profile</td>
+<td align="center">用户登录时执行（优先于.profile）</td>
+<td align="center">当前用户</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nano ~/.bashrc</span><br><span class="line"># 在末尾添加</span><br><span class="line">export PATH=$PATH:/home/dev/mybin</span><br><span class="line">export MY_CUSTOM_VAR=&quot;自定义变量&quot;</span><br><span class="line">alias ll=&#x27;ls -alF&#x27;</span><br><span class="line"># 保存后生效</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-4-永久设置环境变量（系统级）"><a href="#3-1-4-永久设置环境变量（系统级）" class="headerlink" title="3.1.4 永久设置环境变量（系统级）"></a>3.1.4 永久设置环境变量（系统级）</h4><h5 id="方法一：-etc-environment-（所有用户生效，需要重启）"><a href="#方法一：-etc-environment-（所有用户生效，需要重启）" class="headerlink" title="方法一：&#x2F;etc&#x2F;environment （所有用户生效，需要重启）"></a>方法一：&#x2F;etc&#x2F;environment （所有用户生效，需要重启）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/environment</span><br><span class="line"># 添加（不使用export）</span><br><span class="line">PATH=&quot;/usr/local/sbin:...:/my/custom/path&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法二：-etc-profile-（所有用户登录时执行）"><a href="#方法二：-etc-profile-（所有用户登录时执行）" class="headerlink" title="方法二：&#x2F;etc&#x2F;profile （所有用户登录时执行）"></a>方法二：&#x2F;etc&#x2F;profile （所有用户登录时执行）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/profile</span><br><span class="line"># 在末尾添加</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法三（推荐）：-etc-profile-d"><a href="#方法三（推荐）：-etc-profile-d" class="headerlink" title="方法三（推荐）： &#x2F;etc&#x2F;profile.d&#x2F;"></a>方法三（推荐）： &#x2F;etc&#x2F;profile.d&#x2F;</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/profile.d/myenv.sh</span><br><span class="line"># 添加</span><br><span class="line">export MY_GLOBAL_VAR=&quot;全局变量&quot;</span><br><span class="line">source /etc/profile.d/myenv.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-实际使用命令"><a href="#3-2-实际使用命令" class="headerlink" title="3.2 实际使用命令"></a>3.2 实际使用命令</h3><blockquote>
+<p>打开VirtualBox软件，运行虚拟机，然后在里面依次输入上述命令进行实践</p>
+</blockquote>
+<h4 id="3-2-1-查看环境变量"><a href="#3-2-1-查看环境变量" class="headerlink" title="3.2.1 查看环境变量"></a>3.2.1 查看环境变量</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image-1.png" alt="alt text"></p>
+<h4 id="3-2-2-临时设置环境变量"><a href="#3-2-2-临时设置环境变量" class="headerlink" title="3.2.2 临时设置环境变量"></a>3.2.2 临时设置环境变量</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image-2.png" alt="alt text"></p>
+<h4 id="3-2-3-永久设置环境变量（用户级）"><a href="#3-2-3-永久设置环境变量（用户级）" class="headerlink" title="3.2.3 永久设置环境变量（用户级）"></a>3.2.3 永久设置环境变量（用户级）</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image-3.png" alt="alt text"></p>
+<h4 id="3-2-3-永久设置环境变量（系统级）"><a href="#3-2-3-永久设置环境变量（系统级）" class="headerlink" title="3.2.3 永久设置环境变量（系统级）"></a>3.2.3 永久设置环境变量（系统级）</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image-4.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AD/image-5.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">认识Linux系统环境变量命令</td>
+<td align="center">了解和掌握Linux命令行的设置环境变量的指令，明确其使用规范</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实践操作命令行</td>
+<td align="center">切实在Linux系统下完成环境变量的增删改查的相关指令</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">命令行操作</td>
+<td align="center">关于Linux系统的环境变量增删改查</td>
+<td align="center">环境变量座位开发和操作的一个重要节点，只有设置后才能够正确和快速地进行操作</td>
+<td align="center">注意环境变量设置的安全问题</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>环境变量的设置很多时候不能够随心所欲，加之其敏感性，因此设置时如雾里看花，感觉懵懵懂懂的。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了linux操作系统的一些设置环境变量命令，还需要去理解掌握更多的相关命令。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验再次加深了我纯代码页面的理解，减少了图形化界面的依赖程度，以及对linux操作系统有了更深一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="cuid_IP2w-KDICUzB7_z6iPk3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验五/实验五：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.216Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验五：Linux账户与权限管理"><a href="#实验五：Linux账户与权限管理" class="headerlink" title="实验五：Linux账户与权限管理"></a>实验五：Linux账户与权限管理</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>使用命令行账户设置、权限管理等操作</p>
+</li>
+<li><p>了解和实践权限方面的操作和配置。</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-首先明确Linux系统的账户命令"><a href="#3-1-首先明确Linux系统的账户命令" class="headerlink" title="3.1 首先明确Linux系统的账户命令"></a>3.1 首先明确Linux系统的账户命令</h3><h4 id="3-1-1-查看用户与组配置文件"><a href="#3-1-1-查看用户与组配置文件" class="headerlink" title="3.1.1 查看用户与组配置文件"></a>3.1.1 查看用户与组配置文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd # 用户账户信息</span><br><span class="line">sudo cat /etc/shadow # 加密密码信息（仅root可读）</span><br><span class="line">cat /etc/group # 用户组信息</span><br><span class="line">id # 查看当前用户ID信息</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&#x2F;etc&#x2F;passwd 文件格式：<br>用户名:密码占位符:UID:GID:用户描述:主目录:登录Shell</p>
+</blockquote>
+<h4 id="3-1-2-创建和管理用户"><a href="#3-1-2-创建和管理用户" class="headerlink" title="3.1.2 创建和管理用户"></a>3.1.2 创建和管理用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser testuser # 创建新用户</span><br><span class="line">sudo passwd testuser # 设置密码</span><br><span class="line">sudo usermod -aG sudo testuser # 赋予sudo权限</span><br><span class="line">groups testuser # 查看用户所属组</span><br><span class="line">su - testuser # 切换用户</span><br><span class="line">sudo deluser -r testuser # 删除用户</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-文件权限管理"><a href="#3-1-3-文件权限管理" class="headerlink" title="3.1.3 文件权限管理"></a>3.1.3 文件权限管理</h4><table>
+<thead>
+<tr>
+<th align="center">数字</th>
+<th align="center">权限</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7</td>
+<td align="center">rwx</td>
+<td align="center">读+写+执行</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">rw-</td>
+<td align="center">读+写</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">r-x</td>
+<td align="center">读+执行</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">r–</td>
+<td align="center">只读</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">—</td>
+<td align="center">无权限</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 test.txt # 数字法修改权限</span><br><span class="line">chmod u+x test.txt # 符号法：所有者增加执行权限</span><br><span class="line">chmod g-w test.txt # 符号法：去掉组的写权限</span><br><span class="line">sudo chown root:root test.txt # 修改所有者和组</span><br><span class="line">sudo chgrp www-data test.txt # 仅修改所属组</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-实际使用命令"><a href="#3-2-实际使用命令" class="headerlink" title="3.2 实际使用命令"></a>3.2 实际使用命令</h3><blockquote>
+<p>打开VirtualBox软件，运行虚拟机，然后在里面依次输入上述命令进行实践</p>
+</blockquote>
+<h4 id="3-2-1-登录与查看系统信息"><a href="#3-2-1-登录与查看系统信息" class="headerlink" title="3.2.1 登录与查看系统信息"></a>3.2.1 登录与查看系统信息</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-1.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-2.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-3.png" alt="alt text"></p>
+<h4 id="3-2-2-创建和管理用户"><a href="#3-2-2-创建和管理用户" class="headerlink" title="3.2.2 创建和管理用户"></a>3.2.2 创建和管理用户</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-4.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-5.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-6.png" alt="alt text"></p>
+<h4 id="3-2-3-文件权限管理"><a href="#3-2-3-文件权限管理" class="headerlink" title="3.2.3 文件权限管理"></a>3.2.3 文件权限管理</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-7.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-8.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">认识Linux系统账户命令</td>
+<td align="center">了解和掌握Linux命令行的账户指令，明账户的增删改查命令的使用规范</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实践操作命令行</td>
+<td align="center">切实在Linux系统下完成命令行的增删改查和权限的相关指令</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">命令行操作</td>
+<td align="center">关于Linux系统的账户增删改查以及权限命令的掌握</td>
+<td align="center">Linux的账户具有很严格的权限控制，能够有效阻挡黑客的入侵</td>
+<td align="center">注意系统以及人为留下的漏洞，防止被入侵</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>虚拟机下的Linux系统，账户增删改查和权限操作大多都不是简单的认识的，必须要深刻了解内涵才行。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了linux操作系统的一些基本账户命令，还需要去理解掌握更多的相关命令。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验再次加深了我纯代码页面的理解，减少了图形化界面的依赖程度，以及对linux操作系统有了更深一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidE2Xmr9kitQAnFdrN4azQ7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验二/实验二：代码编辑与管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.212Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验二：代码编辑与管理"><a href="#实验二：代码编辑与管理" class="headerlink" title="实验二：代码编辑与管理"></a>实验二：代码编辑与管理</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>1.安装Visual Studio Code（VS Code）文本代码编辑器；</p>
+<p>2.安装和配置Markdown相关插件，掌握代码编辑器插件的基本概念；</p>
+<p>3.学习Markdown基础语法，使用VS Code完成Markdown文档的编辑和渲染。</p>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Windows 11 专业版 25H2</td>
+</tr>
+<tr>
+<td align="center">网络</td>
+<td align="center">互联网</td>
+</tr>
+<tr>
+<td align="center">文本编辑器</td>
+<td align="center">VS Code 1.127.0</td>
+</tr>
+<tr>
+<td align="center">VS Code插件</td>
+<td align="center">Markdown All in One、Markdown Preview Enhanced、Paste image等</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-首先安装VS-Code"><a href="#3-1-首先安装VS-Code" class="headerlink" title="3.1 首先安装VS Code"></a>3.1 首先安装VS Code</h3><blockquote>
+<p>这里我前期就已经安装好，验证内容如下</p>
+</blockquote>
+<p><img src="/images/two/image-1.png" alt="alt text"></p>
+<h3 id="3-2-扩展安装"><a href="#3-2-扩展安装" class="headerlink" title="3.2 扩展安装"></a>3.2 扩展安装</h3><blockquote>
+<p>点击左侧第五个扩展按钮，依次安装Markdown All in one，Markdown Preview Enhanced，Paste Image，MarkdownLint四个插件，其余插件可以自行扩展安装。</p>
+</blockquote>
+<p><img src="/images/two/image-2.png" alt="alt text"></p>
+<h3 id="3-3-配置基础设置优化体验"><a href="#3-3-配置基础设置优化体验" class="headerlink" title="3.3 配置基础设置优化体验"></a>3.3 配置基础设置优化体验</h3><blockquote>
+<p>3.3.1. 开启自动保存：按 Ctrl + , 打开设置，搜索 files.autoSave ，设置为 afterDelay</p>
+<p>3.3.2. 开启单词折行：搜索 editor.wordWrap ，设置为 on</p>
+<p>3.3.3. 配置图片粘贴路径：设置 Paste Image: Path Type 为relative</p>
+</blockquote>
+<h3 id="3-4-创建并编辑第一个Markdown文件"><a href="#3-4-创建并编辑第一个Markdown文件" class="headerlink" title="3.4 创建并编辑第一个Markdown文件"></a>3.4 创建并编辑第一个Markdown文件</h3><h4 id="3-4-1-创建并保存文件"><a href="#3-4-1-创建并保存文件" class="headerlink" title="3.4.1 创建并保存文件"></a>3.4.1 创建并保存文件</h4><blockquote>
+<p>按下 $Ctrl+N$ 键创建一个新文件，然后按下 $Ctrl+S$ 键将其另存为一个新文件</p>
+</blockquote>
+<p><img src="/images/two/image-3.png" alt="alt text"><br><img src="/images/two/image-4.png" alt="alt text"></p>
+<h4 id="3-4-2-编辑文件"><a href="#3-4-2-编辑文件" class="headerlink" title="3.4.2 编辑文件"></a>3.4.2 编辑文件</h4><blockquote>
+<p>按照基础语法内容，比如 “#” 代表一级标题，以及如何插入表格等规则，实现一篇Markdown文档的编写，值得注意的是，本篇报告就是本人第一次用Markdown写的，还怪好用的。</p>
+</blockquote>
+<p>下面是我的示例内容<br><img src="/images/two/image-5.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">安装VS Code</td>
+<td align="center">实现VS Code的安装</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">Markdown插件安装</td>
+<td align="center">依次安装Markdown All in one，Markdown Preview Enhanced，Paste Image，MarkdownLint四个插件</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">自行编辑文档</td>
+<td align="center">自行编辑Markdown文件，我编辑了示例文本和本篇报告</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">VS Code</td>
+<td align="center">作为一款轻量级的文本编辑软件，配合各种插件能够实现快速地文本编辑</td>
+<td align="center">写文档时一些格式都已经定义好，这大大提升了写作效率</td>
+<td align="center">各种语法内容仍需要不断记忆和编写，因为还有各种各样的数学公式等</td>
+</tr>
+<tr>
+<td align="center">Markdown</td>
+<td align="center">该插件实现了VS Code作为编辑器使用通用格式编辑内容的需求</td>
+<td align="center">Markdown种的模板、实时预览、组件、转换等功能特别好用</td>
+<td align="center">仍需不断熟悉使用相关组件和模板</td>
+</tr>
+<tr>
+<td align="center">编写文件</td>
+<td align="center">自行编辑Markdown文件时，具备很高的自由性，且不需要像Word一样时时刻刻注意格式内容</td>
+<td align="center">大大提高编写文件的效率</td>
+<td align="center">配合模板使用事半功倍</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>编写文档时，很多情况下都会遇到不知道怎么版的时候，比如怎么插入表格，怎么缩进，甚至怎么插入空格，这时候就需要自行去查找相关知识进行学习。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了VS Code的安装以及相关插件的安装使用，还有一些Markdown的排版知识和内容。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验加深了我对于写作的指导，写作论文使用Markdown、Latex的好处就在这里，很多时候数学公式以及模板的定义对于论文写作来说是非常重要的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" data-id="cuiddclPeDOQp3QZyQqB78NJa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验二/test01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/test01/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.212Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="我的第一个Markdown文档"><a href="#我的第一个Markdown文档" class="headerlink" title="我的第一个Markdown文档"></a>我的第一个Markdown文档</h1><h2 id="什么是Markdown？"><a href="#什么是Markdown？" class="headerlink" title="什么是Markdown？"></a>什么是Markdown？</h2><p>Markdown是一种<strong>轻量级</strong>的标记语言。</p>
+<h3 id="Markdown的核心特点"><a href="#Markdown的核心特点" class="headerlink" title="Markdown的核心特点"></a>Markdown的核心特点</h3><ul>
+<li><strong>简洁性</strong>：仅需少量符号即可完成排版</li>
+<li><strong>可读性</strong>：纯文本仍然清晰易读</li>
+<li><strong>兼容性</strong>：支持GitHub、博客平台等多种场景</li>
+</ul>
+<h3 id="一个代码示例"><a href="#一个代码示例" class="headerlink" title="一个代码示例"></a>一个代码示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, Markdown!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="这才是我自己书写的第一个markdown文件"><a href="#这才是我自己书写的第一个markdown文件" class="headerlink" title="这才是我自己书写的第一个markdown文件"></a>这才是我自己书写的第一个markdown文件</h2><h2 id="我自己书写的markdown文件该是什么样子呢"><a href="#我自己书写的markdown文件该是什么样子呢" class="headerlink" title="我自己书写的markdown文件该是什么样子呢?"></a>我自己书写的markdown文件该是什么样子呢?</h2><p>就按照高等数学的笔记来作为基础内容吧</p>
+<h3 id="9-6-方向导数与梯度"><a href="#9-6-方向导数与梯度" class="headerlink" title="9.6 方向导数与梯度"></a>9.6 方向导数与梯度</h3><h4 id="9-6-1-方向导数"><a href="#9-6-1-方向导数" class="headerlink" title="9.6.1 方向导数"></a>9.6.1 方向导数</h4><p>1.定义：多元函数在每个点在每个方向上都有一个导数值，在二元函数中表现为平面方向，三元函数中表现为空间方向，这个方向就是某一个向量，而方向导数是多元函数在某个方向上的导数值。<br>2.计算规则：方向导数的计算是函数的偏导组成的向量点积该方向向量的单位向量，即：</p>
+<blockquote>
+<p>二元函数 $f(x,y)在向量\   \vec{l} \  方向的偏导为:$<br>$$<br>\frac{\partial f}{\partial \vec{l}}&#x3D;f_xcos \alpha + f_ycos \beta<br>$$<br>$其中cos \alpha,cos\beta为 \  \vec{l} \  的的单位向量分量$</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/test01/" data-id="cuidueMEIIvcG3oimg2t2-XbI" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验三/实验三：虚拟机安装与配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.208Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验三：虚拟机的安装与使用"><a href="#实验三：虚拟机的安装与使用" class="headerlink" title="实验三：虚拟机的安装与使用"></a>实验三：虚拟机的安装与使用</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>使用虚拟机工具（VirtualBox）安装Linux系统（Ubuntu Server）；</p>
+</li>
+<li><p>通过克隆技术构建一个多机虚拟化环境；</p>
+</li>
+<li><p>了解和掌握基于虚拟机的开发环境的基本构建方法和配置。</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Windows 11 专业版 25H2</td>
+</tr>
+<tr>
+<td align="center">网络</td>
+<td align="center">互联网</td>
+</tr>
+<tr>
+<td align="center">硬件</td>
+<td align="center">CPU支持VT-x&#x2F;AMD-V虚拟化技术；内存≥8GB；硬盘剩余空间≥50GB</td>
+</tr>
+<tr>
+<td align="center">软件</td>
+<td align="center">Oracle VirtualBox</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-安装软件"><a href="#3-1-安装软件" class="headerlink" title="3.1 安装软件"></a>3.1 安装软件</h3><h3 id="3-1-1-首先安装Oracle-VirtualBox"><a href="#3-1-1-首先安装Oracle-VirtualBox" class="headerlink" title="3.1.1 首先安装Oracle VirtualBox"></a>3.1.1 首先安装Oracle VirtualBox</h3><blockquote>
+<p>访问VirtualBox官网，并下载Windows版本的安装包进行安装，然后重启电脑。</p>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image.png" alt="alt text"></p>
+<h3 id="3-1-2-下载Ubuntu-Server-26-04-LTS-ISO镜像"><a href="#3-1-2-下载Ubuntu-Server-26-04-LTS-ISO镜像" class="headerlink" title="3.1.2 下载Ubuntu Server 26.04 LTS ISO镜像"></a>3.1.2 下载Ubuntu Server 26.04 LTS ISO镜像</h3><blockquote>
+<p>访问Ubuntu官网下载 26.04 LTS版本。</p>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-1.png" alt="alt text"></p>
+<h3 id="3-2-创建虚拟机"><a href="#3-2-创建虚拟机" class="headerlink" title="3.2 创建虚拟机"></a>3.2 创建虚拟机</h3><blockquote>
+<p>打开VirtualBox软件，点击新建，然后输入虚拟机名称，选择虚拟机系统镜像为上面下载的linux系统，分配内存资源和硬盘资源，再点击创建虚拟机。</p>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-2.png" alt="alt text"></p>
+<blockquote>
+<p>然后不运行虚拟机，在设置–网络里面打开网卡2，勾选启用网络连接，配置为仅主机模式，实现双网卡。</p>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-3.png" alt="alt text"></p>
+<h3 id="3-3-启动虚拟机，安装Ubuntu-Server"><a href="#3-3-启动虚拟机，安装Ubuntu-Server" class="headerlink" title="3.3 启动虚拟机，安装Ubuntu Server"></a>3.3 启动虚拟机，安装Ubuntu Server</h3><blockquote>
+<p>启动虚拟机，在出现的页面中选择 “Try or Install Ubuntu Server”，然后跟随指引选择相应选项，</p>
+<blockquote>
+<p>注意：</p>
+<p>1.存储配置选择 “Use an entire disk”</p>
+<p>2.设置用户名和密码务必按空格键选中“Install OpenSSH server”</p>
+</blockquote>
+<p>等待安装完成后重启</p>
+</blockquote>
+<h4 id="3-4-配置静态IP地址"><a href="#3-4-配置静态IP地址" class="headerlink" title="3.4 配置静态IP地址"></a>3.4 配置静态IP地址</h4><blockquote>
+<p>启动虚拟机运行，然后输入用户名和密码</p>
+<blockquote>
+<p>注意密码的输入是不回显的，输入正确后回车即可</p>
+</blockquote>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-4.png" alt="alt text"></p>
+<blockquote>
+<p>然后运行命令 sudo nano &#x2F;etc&#x2F;netplan&#x2F;50-cloud-init.yaml ，在出现的页面中将配置文件改为下述代码，注意严格控制缩进。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">network:</span><br><span class="line">  version: 2</span><br><span class="line">  renderer: networkd</span><br><span class="line">  ethernets:</span><br><span class="line">    enp0s3: # NAT网卡</span><br><span class="line">      dhcp4: yes</span><br><span class="line">    enp0s8: # 仅主机网卡</span><br><span class="line">      dhcp4: no</span><br><span class="line">    addresses:</span><br><span class="line">      - 192.168.56.101/24</span><br><span class="line">    nameservers:</span><br><span class="line">      addresses: [8.8.8.8, 114.114.114.114]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-5.png" alt="alt text"></p>
+<blockquote>
+<p>然后运行命令 sudo netplan apply 使配置生效，可以用 ip a 命令检查enp0s8的ip地址是否为静态地址 192.168.56.101 判断是否生效。<br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-6.png" alt="alt text"></p>
+</blockquote>
+<h3 id="3-5-配置主机名与hosts解析"><a href="#3-5-配置主机名与hosts解析" class="headerlink" title="3.5 配置主机名与hosts解析"></a>3.5 配置主机名与hosts解析</h3><blockquote>
+<p>运行命令：sudo hostnamectl set-hostname template 以将主机名配置为 template<br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-7.png" alt="alt text"><br>运行命令sudo nano &#x2F;etc&#x2F;hosts ，并在文件末尾添加以下内容</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">192.168.56.101 template</span><br><span class="line">192.168.56.102 node1</span><br><span class="line">192.168.56.103 node2</span><br><span class="line">192.168.56.104 node3</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-8.png" alt="alt text"></p>
+<h3 id="3-6-克隆虚拟机"><a href="#3-6-克隆虚拟机" class="headerlink" title="3.6 克隆虚拟机"></a>3.6 克隆虚拟机</h3><blockquote>
+<ol>
+<li>关闭模板机： sudo shutdown now</li>
+<li>在VirtualBox中右键点击模板机 → “复制”，选择 “完全克隆”</li>
+<li>重复三次，分别克隆出 node1 、 node2 、 node3</li>
+</ol>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-9.png" alt="alt text"></p>
+<h3 id="3-7-修改克隆机的主机名和IP"><a href="#3-7-修改克隆机的主机名和IP" class="headerlink" title="3.7 修改克隆机的主机名和IP"></a>3.7 修改克隆机的主机名和IP</h3><blockquote>
+<p>对每台克隆机，都重复上述过程，分别将其主机名改为node1&#x2F;node2&#x2F;node3，将ymal文件中的静态ip改为102&#x2F;103&#x2F;104</p>
+</blockquote>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-10.png" alt="alt text"></p>
+<h3 id="3-8-验证多机环境"><a href="#3-8-验证多机环境" class="headerlink" title="3.8 验证多机环境"></a>3.8 验证多机环境</h3><blockquote>
+<p>在node1上测试多机互连，当能正常出现收包时间时即成功连通。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ping -c 3 8.8.8.8 # 测试外网</span><br><span class="line">ping -c 3 192.168.56.1 # 测试宿主机</span><br><span class="line">ping -c 3 node2 # 测试其他虚拟机</span><br><span class="line">ping -c 3 node3</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%B8%89/image-11.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">安装虚拟机和镜像</td>
+<td align="center">VirtualBox的安装以及linux系统镜像的下载</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">虚拟机初始化与网络配置</td>
+<td align="center">完成虚拟机镜像系统安装以及网卡、IP地址的配置</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">多机互连</td>
+<td align="center">创建多个虚拟机，修改虚拟机名和IP地址，并用ping命令验证多机环境</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">虚拟机</td>
+<td align="center">关于VirtualBox的安装以及镜像的安装，然后配置虚拟机的相关设置包括网卡、名称等</td>
+<td align="center">配置时往往具有多个功能，需要自己思考寻找</td>
+<td align="center">不要乱配置，因为可能稍微一动就会出错</td>
+</tr>
+<tr>
+<td align="center">linux操作系统</td>
+<td align="center">关于linux操作系统的文件更改，ip配置，以及相关命令的使用</td>
+<td align="center">和传统图形化界面有很大区别，都是考指令和代码完成操作</td>
+<td align="center">仍需不断熟悉相关命令</td>
+</tr>
+<tr>
+<td align="center">多机互连</td>
+<td align="center">实现多台主机连通，形成一个局域网</td>
+<td align="center">这也许就是网络初具雏形时的局域网，也就是网络的雏形，可以思考类比互联网</td>
+<td align="center">配置ip地址，已经验证成功时需要不断尝试</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>修改ymal配置文件时，需要严格控制缩进，只要锁紧不一样就会出现问题。</li>
+<li>linux系统可以用上下键调出之前的命令，但是也会出现的是之前修改的内容，因此要想查看最新的配置情况需要自己重新写入命令。</li>
+<li>ping主机时，可能会产生ip重叠的情况，这时候只需要再重启一下虚拟机即可。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了虚拟机的概念以及linux操作系统的一些命令情况，很多时候虚拟机和真机的区别并不大，因此可以通过虚拟机的局域网去思考真实世界的互联网的相关情况。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验加深了我纯代码页面的理解，减少了图形化界面的依赖程度，这对于以后计算机的学习具有很重要的意义。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-id="cuidWOxTbGG2mfYCafLK_ZE3R" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-实验七/实验七：远程管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.204Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验七：远程管理"><a href="#实验七：远程管理" class="headerlink" title="实验七：远程管理"></a>实验七：远程管理</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>配置和使用SSH等工具进行远程登录、文件传输以及git服务架设等操作</p>
+</li>
+<li><p>体验和完成基本的远程管理任务</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+<tr>
+<td align="center">网络</td>
+<td align="center">所有虚拟机处于同一Host-Only网络（ 192.168.56.0&#x2F;24 ）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-检查SSH服务状态和基础配置"><a href="#3-1-检查SSH服务状态和基础配置" class="headerlink" title="3.1 检查SSH服务状态和基础配置"></a>3.1 检查SSH服务状态和基础配置</h3><h4 id="3-1-1-检查SSH服务状态"><a href="#3-1-1-检查SSH服务状态" class="headerlink" title="3.1.1 检查SSH服务状态"></a>3.1.1 检查SSH服务状态</h4><blockquote>
+<p>打开node1节点的虚拟机，输入以下命令</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh # 检查服务状态</span><br><span class="line">sudo apt install openssh-server -y # 如未安装</span><br><span class="line">sudo systemctl enable ssh # 设置开机自启</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-2-配置SSH服务器"><a href="#3-1-2-配置SSH服务器" class="headerlink" title="3.1.2 配置SSH服务器"></a>3.1.2 配置SSH服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将以下配置的注释打开，如没有则手动添加</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Port 22 # 默认端口</span><br><span class="line">PermitRootLogin no # 禁止root直接登录</span><br><span class="line">PubkeyAuthentication yes # 允许公钥认证</span><br><span class="line">PasswordAuthentication yes # 允许密码认证</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启服务</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-SSH密钥认证配置"><a href="#3-2-SSH密钥认证配置" class="headerlink" title="3.2 SSH密钥认证配置"></a>3.2 SSH密钥认证配置</h3><blockquote>
+<p>运行node2虚拟机，输入以下命令</p>
+</blockquote>
+<h4 id="3-2-1-生成并查看SSH密钥对"><a href="#3-2-1-生成并查看SSH密钥对" class="headerlink" title="3.2.1 生成并查看SSH密钥对"></a>3.2.1 生成并查看SSH密钥对</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &quot;你的邮箱@example.com</span><br><span class="line">ls ~/.ssh/</span><br><span class="line"># id_ed25519（私钥） 和 id_ed25519.pub（公钥）</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-将公钥复制到远程服务器"><a href="#3-2-2-将公钥复制到远程服务器" class="headerlink" title="3.2.2 将公钥复制到远程服务器"></a>3.2.2 将公钥复制到远程服务器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id dev@192.168.56.103</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-测试免密登录"><a href="#3-2-3-测试免密登录" class="headerlink" title="3.2.3 测试免密登录"></a>3.2.3 测试免密登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh dev@192.168.56.102</span><br><span class="line"># 应无需密码直接登录</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-文件传输"><a href="#3-3-文件传输" class="headerlink" title="3.3 文件传输"></a>3.3 文件传输</h3><h4 id="3-3-1-使用SCP传输文件"><a href="#3-3-1-使用SCP传输文件" class="headerlink" title="3.3.1 使用SCP传输文件"></a>3.3.1 使用SCP传输文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 上传文件</span><br><span class="line">scp /home/dev/test.txt dev@192.168.56.102:/home/dev/</span><br><span class="line"># 上传目录</span><br><span class="line">scp -r /home/dev/project/ dev@192.168.56.102:/home/dev/</span><br><span class="line"># 下载文件</span><br><span class="line">scp dev@192.168.56.102:/home/dev/log.txt ./</span><br><span class="line"># 下载目录</span><br><span class="line">scp -r dev@192.168.56.102:/home/dev/backup/ ./</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-使用rsync同步文件"><a href="#3-3-2-使用rsync同步文件" class="headerlink" title="3.3.2 使用rsync同步文件"></a>3.3.2 使用rsync同步文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 安装rsync</span><br><span class="line">sudo apt install rsync -y</span><br><span class="line"># 本地同步</span><br><span class="line">rsync -avz /home/dev/source/ /home/dev/backup/</span><br><span class="line"># 推送到远程</span><br><span class="line">rsync -avz -e ssh /home/dev/project/ dev@192.168.56.102:/home/dev/project/</span><br><span class="line"># 从远程拉取</span><br><span class="line">rsync -avz -e ssh dev@192.168.56.102:/home/dev/logs/ ./logs/</span><br><span class="line"># 保持完全一致（--delete会删除目标中多余的文件）</span><br><span class="line">rsync -avz --delete -e ssh /home/dev/source/ dev@192.168.56.102:/home/dev/dest/</span><br><span class="line"># 排除特定文件</span><br><span class="line">rsync -avz --exclude=&#x27;*.log&#x27; --exclude=&#x27;tmp/&#x27; -e ssh /home/dev/</span><br><span class="line">dev@192.168.56.102:/home/dev/</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">完成远程免密登录</td>
+<td align="center">使用SSH服务完成远程免密登录的配置</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实现文件传输</td>
+<td align="center">使用SCP和rsync在远程登录下完成文件的相互传输</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SSH远程登录</td>
+<td align="center">SSH是一种保护机制，能够实现远程非对称安全登录并完成较为安全的文件传输功能</td>
+<td align="center">这一底层原理作为github的实现基础</td>
+<td align="center">注意配置文件时的安全问题</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>指令不明确，还需要更多的完成指令的记忆和熟悉。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我对于SSH的登录有了更多的认识，包括公钥私钥、SCP文件传输指令以及rsync同步文件等。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验让我理解了github的底层原理，对于我今后的实际工作有了更进一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" data-id="cuidAL8jhYptbX14_jH3tTIpm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.196Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/12/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/hello-world/" data-id="cuidwRoVracaUnZ9hSBk9jQ8i" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-测试集/helloworld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/08/%E6%B5%8B%E8%AF%95%E9%9B%86/helloworld/" class="article-date">
+  <time class="dt-published" datetime="2026-07-08T05:17:46.000Z" itemprop="datePublished">2026-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/08/%E6%B5%8B%E8%AF%95%E9%9B%86/helloworld/">helloworld 我的姓名是Xander Bay</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="这是我的第一篇博客文章"><a href="#这是我的第一篇博客文章" class="headerlink" title="这是我的第一篇博客文章"></a>这是我的第一篇博客文章</h2><hr>
+<blockquote>
+<p>great<br>yes</p>
+</blockquote>
+<hr>
+<p>&#x3D;&#x3D;no&#x3D;&#x3D;</p>
+<ul>
+<li><a href="#%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0">这是我的第一篇博客文章</a></li>
+</ul>
+<blockquote>
+<p>asdaadadasd</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/08/%E6%B5%8B%E8%AF%95%E9%9B%86/helloworld/" data-id="cuidgFO6yq0EEBPkxPwYmiwJm" data-title="helloworld 我的姓名是Xander Bay" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/test01/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

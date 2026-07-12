@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="实验五：Linux账户与权限管理 姓名：贾国龙 　　学号：22070809  一、实验目的 使用命令行账户设置、权限管理等操作  了解和实践权限方面的操作和配置。   二、实验环境   项目 内容    操作系统 Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）   三、实验过程3.1 首先明确Linux系统的账户命令3.1.1 查看用户与组配置文件1234cat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实验五：Linux账户与权限管理 姓名：贾国龙 　　学号：22070809  一、实验目的 使用命令行账户设置、权限管理等操作  了解和实践权限方面的操作和配置。   二、实验环境   项目 内容    操作系统 Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）   三、实验过程3.1 首先明确Linux系统的账户命令3.1.1 查看用户与组配置文件1234cat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-1.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-2.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-3.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-4.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-5.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-6.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-7.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-8.png">
+<meta property="article:published_time" content="2026-07-12T09:03:58.216Z">
+<meta property="article:modified_time" content="2026-07-12T09:03:58.216Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-实验五/实验五：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T09:03:58.216Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="实验五：Linux账户与权限管理"><a href="#实验五：Linux账户与权限管理" class="headerlink" title="实验五：Linux账户与权限管理"></a>实验五：Linux账户与权限管理</h1><blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li><p>使用命令行账户设置、权限管理等操作</p>
+</li>
+<li><p>了解和实践权限方面的操作和配置。</p>
+</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Ubuntu Server 22.04 LTS（在VirtualBox虚拟机中）</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-首先明确Linux系统的账户命令"><a href="#3-1-首先明确Linux系统的账户命令" class="headerlink" title="3.1 首先明确Linux系统的账户命令"></a>3.1 首先明确Linux系统的账户命令</h3><h4 id="3-1-1-查看用户与组配置文件"><a href="#3-1-1-查看用户与组配置文件" class="headerlink" title="3.1.1 查看用户与组配置文件"></a>3.1.1 查看用户与组配置文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd # 用户账户信息</span><br><span class="line">sudo cat /etc/shadow # 加密密码信息（仅root可读）</span><br><span class="line">cat /etc/group # 用户组信息</span><br><span class="line">id # 查看当前用户ID信息</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&#x2F;etc&#x2F;passwd 文件格式：<br>用户名:密码占位符:UID:GID:用户描述:主目录:登录Shell</p>
+</blockquote>
+<h4 id="3-1-2-创建和管理用户"><a href="#3-1-2-创建和管理用户" class="headerlink" title="3.1.2 创建和管理用户"></a>3.1.2 创建和管理用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser testuser # 创建新用户</span><br><span class="line">sudo passwd testuser # 设置密码</span><br><span class="line">sudo usermod -aG sudo testuser # 赋予sudo权限</span><br><span class="line">groups testuser # 查看用户所属组</span><br><span class="line">su - testuser # 切换用户</span><br><span class="line">sudo deluser -r testuser # 删除用户</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-文件权限管理"><a href="#3-1-3-文件权限管理" class="headerlink" title="3.1.3 文件权限管理"></a>3.1.3 文件权限管理</h4><table>
+<thead>
+<tr>
+<th align="center">数字</th>
+<th align="center">权限</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7</td>
+<td align="center">rwx</td>
+<td align="center">读+写+执行</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">rw-</td>
+<td align="center">读+写</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">r-x</td>
+<td align="center">读+执行</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">r–</td>
+<td align="center">只读</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">—</td>
+<td align="center">无权限</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 test.txt # 数字法修改权限</span><br><span class="line">chmod u+x test.txt # 符号法：所有者增加执行权限</span><br><span class="line">chmod g-w test.txt # 符号法：去掉组的写权限</span><br><span class="line">sudo chown root:root test.txt # 修改所有者和组</span><br><span class="line">sudo chgrp www-data test.txt # 仅修改所属组</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-实际使用命令"><a href="#3-2-实际使用命令" class="headerlink" title="3.2 实际使用命令"></a>3.2 实际使用命令</h3><blockquote>
+<p>打开VirtualBox软件，运行虚拟机，然后在里面依次输入上述命令进行实践</p>
+</blockquote>
+<h4 id="3-2-1-登录与查看系统信息"><a href="#3-2-1-登录与查看系统信息" class="headerlink" title="3.2.1 登录与查看系统信息"></a>3.2.1 登录与查看系统信息</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-1.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-2.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-3.png" alt="alt text"></p>
+<h4 id="3-2-2-创建和管理用户"><a href="#3-2-2-创建和管理用户" class="headerlink" title="3.2.2 创建和管理用户"></a>3.2.2 创建和管理用户</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-4.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-5.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-6.png" alt="alt text"></p>
+<h4 id="3-2-3-文件权限管理"><a href="#3-2-3-文件权限管理" class="headerlink" title="3.2.3 文件权限管理"></a>3.2.3 文件权限管理</h4><p><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-7.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E4%BA%94/image-8.png" alt="alt text"></p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">认识Linux系统账户命令</td>
+<td align="center">了解和掌握Linux命令行的账户指令，明账户的增删改查命令的使用规范</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">实践操作命令行</td>
+<td align="center">切实在Linux系统下完成命令行的增删改查和权限的相关指令</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">命令行操作</td>
+<td align="center">关于Linux系统的账户增删改查以及权限命令的掌握</td>
+<td align="center">Linux的账户具有很严格的权限控制，能够有效阻挡黑客的入侵</td>
+<td align="center">注意系统以及人为留下的漏洞，防止被入侵</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>虚拟机下的Linux系统，账户增删改查和权限操作大多都不是简单的认识的，必须要深刻了解内涵才行。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我理解并掌握了linux操作系统的一些基本账户命令，还需要去理解掌握更多的相关命令。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验再次加深了我纯代码页面的理解，减少了图形化界面的依赖程度，以及对linux操作系统有了更深一步的认识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidE2Xmr9kitQAnFdrN4azQ7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E4%B8%8E%E7%AE%A1%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%BA%8C/test01/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
