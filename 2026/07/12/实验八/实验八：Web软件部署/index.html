@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>实验八：Web软件部署 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="姓名：贾国龙 　　学号：22070809  一、实验目的 综合使用所学各类工具，构建和模拟一个网络环境，体验和实现Web静态站点从开发到部署的全过程  二、实验环境   项目 内容    操作系统 windows系统   账号 GitHub账号   三、实验过程3.1 GitHub Pages自动化部署3.1.1 确认Hexo博客正常运行 打开cmd命令行窗口，输入以下命令  12cd ~&#x2F;my">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验八：Web软件部署">
+<meta property="og:url" content="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="姓名：贾国龙 　　学号：22070809  一、实验目的 综合使用所学各类工具，构建和模拟一个网络环境，体验和实现Web静态站点从开发到部署的全过程  二、实验环境   项目 内容    操作系统 windows系统   账号 GitHub账号   三、实验过程3.1 GitHub Pages自动化部署3.1.1 确认Hexo博客正常运行 打开cmd命令行窗口，输入以下命令  12cd ~&#x2F;my">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-1.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-2.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-3.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-4.png">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-5.png">
+<meta property="article:published_time" content="2026-07-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-12T13:21:39.183Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-实验八/实验八：Web软件部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2026-07-12T00:00:00.000Z" itemprop="datePublished">2026-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      实验八：Web软件部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>姓名：贾国龙 　　学号：22070809</p>
+</blockquote>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li>综合使用所学各类工具，构建和模拟一个网络环境，体验和实现Web静态站点从开发到部署的全过程</li>
+</ol>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">windows系统</td>
+</tr>
+<tr>
+<td align="center">账号</td>
+<td align="center">GitHub账号</td>
+</tr>
+</tbody></table>
+<h2 id="三、实验过程"><a href="#三、实验过程" class="headerlink" title="三、实验过程"></a>三、实验过程</h2><h3 id="3-1-GitHub-Pages自动化部署"><a href="#3-1-GitHub-Pages自动化部署" class="headerlink" title="3.1 GitHub Pages自动化部署"></a>3.1 GitHub Pages自动化部署</h3><h4 id="3-1-1-确认Hexo博客正常运行"><a href="#3-1-1-确认Hexo博客正常运行" class="headerlink" title="3.1.1 确认Hexo博客正常运行"></a>3.1.1 确认Hexo博客正常运行</h4><blockquote>
+<p>打开cmd命令行窗口，输入以下命令</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/my-blog</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image.png" alt="alt text"></p>
+<h4 id="3-1-2-确认Git配置"><a href="#3-1-2-确认Git配置" class="headerlink" title="3.1.2 确认Git配置"></a>3.1.2 确认Git配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-1.png" alt="alt text"></p>
+<h3 id="3-2-创建两个Github仓库"><a href="#3-2-创建两个Github仓库" class="headerlink" title="3.2 创建两个Github仓库"></a>3.2 创建两个Github仓库</h3><blockquote>
+<p>进入GitHub官网，登录账号，然后在右上角新建两仓库，分别为</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">仓库</th>
+<th align="center">名称</th>
+<th align="center">权限</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">库</td>
+<td align="center">my-blog</td>
+<td align="center">Private</td>
+<td align="center">存放Hexo源码</td>
+</tr>
+<tr>
+<td align="center">部署仓库</td>
+<td align="center">用户名.github.io</td>
+<td align="center">Public</td>
+<td align="center">托管静态页面</td>
+</tr>
+</tbody></table>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-2.png" alt="alt text"></p>
+<h3 id="3-3-将本地项目关联到源码仓库"><a href="#3-3-将本地项目关联到源码仓库" class="headerlink" title="3.3 将本地项目关联到源码仓库"></a>3.3 将本地项目关联到源码仓库</h3><blockquote>
+<p>使用命令行，进入blog路径后，初始化git仓库并连接到远程源码仓库</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd ~/my-blog</span><br><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/你的用户名/my-blog.git</span><br><span class="line">#创建 .gitignore文件</span><br><span class="line">node_modules/</span><br><span class="line">.DS_Store</span><br><span class="line">public/</span><br><span class="line">.deploy_git/</span><br><span class="line">#提交并推送</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;初始化Hexo博客源码&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-3.png" alt="alt text"><br><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-4.png" alt="alt text"></p>
+<h3 id="3-4-配置GitHub-Actions"><a href="#3-4-配置GitHub-Actions" class="headerlink" title="3.4 配置GitHub Actions"></a>3.4 配置GitHub Actions</h3><blockquote>
+<p>先创建工作流目录和文件，然后配置文件后提交并推送</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p .github/workflows</span><br><span class="line">nano .github/workflows/deploy.yml</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改配置文件为</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">name: Deploy to GitHub Pages</span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches: [main]</span><br><span class="line">  workflow_dispatch:</span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">      - name: 检出源码</span><br><span class="line">        uses: actions/checkout@v3</span><br><span class="line"></span><br><span class="line">      - name: 安装Node.js</span><br><span class="line">        uses: actions/setup-node@v3</span><br><span class="line">        with:</span><br><span class="line">          node-version: &#x27;20&#x27;</span><br><span class="line"></span><br><span class="line">      - name: 缓存依赖</span><br><span class="line">      uses: actions/cache@v3</span><br><span class="line">        with:</span><br><span class="line">          path: ~/.npm</span><br><span class="line">          key: $&#123;&#123; runner.os &#125;&#125;-node-$&#123;&#123; hashFiles(&#x27;**/package-lock.json&#x27;) &#125;&#125;</span><br><span class="line"></span><br><span class="line">      - name: 安装依赖</span><br><span class="line">        run: npm install</span><br><span class="line"></span><br><span class="line">      - name: 生成静态文件</span><br><span class="line">        run: npx hexo generate</span><br><span class="line"></span><br><span class="line">      - name: 创建.nojekyll文件</span><br><span class="line">        run: echo &quot;&quot; &gt; public/.nojekyll</span><br><span class="line"></span><br><span class="line">      - name: 部署到GitHub Pages</span><br><span class="line">        uses: peaceiris/actions-gh-pages@v3</span><br><span class="line">        with:</span><br><span class="line">          personal_token: $&#123;&#123; secrets.PERSONAL_TOKEN &#125;&#125;</span><br><span class="line">          publish_dir: ./public</span><br><span class="line">          publish_branch: main</span><br><span class="line">          external_repository: 你的用户名/你的用户名.github.io</span><br></pre></td></tr></table></figure>
+
+<p>提交并推送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .github/workflows/deploy.yml</span><br><span class="line">git commit -m &quot;添加GitHub Actions自动部署&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%85%AB/image-5.png" alt="alt text"></p>
+<h3 id="3-5-生成并配置Personal-Access-Token"><a href="#3-5-生成并配置Personal-Access-Token" class="headerlink" title="3.5 生成并配置Personal Access Token"></a>3.5 生成并配置Personal Access Token</h3><p>进入github官网网站，登录账号后进行下列操作</p>
+<ol>
+<li>GitHub → Settings → Developer settings → Personal access tokens</li>
+<li>Generate new token，勾选 repo 权限</li>
+<li>复制Token</li>
+<li>在源码仓库 → Settings → Secrets → Actions → New repository secret<br>Name: PERSONAL_TOKEN<br>Secret: 粘贴Token</li>
+</ol>
+<h3 id="3-6-配置GitHub-Pages"><a href="#3-6-配置GitHub-Pages" class="headerlink" title="3.6 配置GitHub Pages"></a>3.6 配置GitHub Pages</h3><p>进入部署仓库 → Settings → Pages → Branch: main → Save</p>
+<p>然后访问：<a target="_blank" rel="noopener" href="https://xxby-cmd.github.io/">https://xxby-cmd.github.io</a></p>
+<p>若成功出现站点，即成功部署</p>
+<h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><table>
+<thead>
+<tr>
+<th align="center">项</th>
+<th align="center">内容</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">实现外部设备访问博客</td>
+<td align="center">实现web静态站点部署，完成其他设备也能访问博客文章</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">综合学习多个模块</td>
+<td align="center">将前几个模块的内容统一邮寄结合</td>
+<td align="center">✅️完成</td>
+</tr>
+<tr>
+<td align="center">完成github管理代码</td>
+<td align="center">使用Github管理源文件以及代码</td>
+<td align="center">✅️完成</td>
+</tr>
+</tbody></table>
+<h2 id="五、知识总结"><a href="#五、知识总结" class="headerlink" title="五、知识总结"></a>五、知识总结</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">体会</th>
+<th align="center">注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">web站点的部署内容</td>
+<td align="center">综合本周所学习的工具内容，切实自行部署好一个web站点</td>
+<td align="center">web静态站点说白了就是一个静态网页，可以靠github管理的简单自动网页，并且继承了CI&#x2F;CD相关内容</td>
+<td align="center">很多时候下一步错步步错，过程中我犯了不少错也纠正了自己</td>
+</tr>
+</tbody></table>
+<h2 id="六、出现问题"><a href="#六、出现问题" class="headerlink" title="六、出现问题"></a>六、出现问题</h2><ul>
+<li>在网点创建过程中，不知道什么代码是什么作业，也不知道这一个步骤的作用在哪里，只会照本宣科的一点一点跟着做，好在不断模仿不断学习，最终也是成功学会了很多内容。</li>
+<li>在创建过程中会犯很多错，这是需要我自己不断加以自学自己理解相关内容才能解决的。</li>
+</ul>
+<h2 id="七、心得体会"><a href="#七、心得体会" class="headerlink" title="七、心得体会"></a>七、心得体会</h2><h3 id="7-1-技术层面"><a href="#7-1-技术层面" class="headerlink" title="7.1 技术层面"></a>7.1 技术层面</h3><p>本次实验中，我对于web静态站点的部署和开发全过程有了一个清晰的理解和掌握，对于我的开发前端齐了非常重要的作用。</p>
+<h3 id="7-2-思政层面"><a href="#7-2-思政层面" class="headerlink" title="7.2 思政层面"></a>7.2 思政层面</h3><p>本次实验让我理解了CI&#x2F;CD的重要性以及部署过程中的困难与挑战，这些都有助于我客服今后的困难。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/" data-id="cuidKVGRo_W4And9iOdbebXHc" data-title="实验八：Web软件部署" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          实验七：远程管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">实验六：Linux环境配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/">实验八：Web软件部署</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">实验六：Linux环境配置</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">实验五：Linux账户与权限管理</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">实验四：Linux基础操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

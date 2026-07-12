@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>实验一：Web环境配置与静态节点构建 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="姓名：贾国龙 学号：22070809 1. 实验目的本次实验旨在自行安装好web环境后，自行开发并运行一个web博客，了解和掌握web开发环境的配置，理解web软件的B&#x2F;S框架架构特点以及静态节点和动态节点的区别。 2.  实验环境:   内容 版本    操作系统 Windows 11 专业版 25H2   运行环境 Node.js 24.18.0   包管理器 npm 11.16.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验一：Web环境配置与静态节点构建">
+<meta property="og:url" content="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="姓名：贾国龙 学号：22070809 1. 实验目的本次实验旨在自行安装好web环境后，自行开发并运行一个web博客，了解和掌握web开发环境的配置，理解web软件的B&#x2F;S框架架构特点以及静态节点和动态节点的区别。 2.  实验环境:   内容 版本    操作系统 Windows 11 专业版 25H2   运行环境 Node.js 24.18.0   包管理器 npm 11.16.0">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-12T13:21:39.163Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-实验一/实验一：Linux账户与权限管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-07-09T00:00:00.000Z" itemprop="datePublished">2026-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      实验一：Web环境配置与静态节点构建
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>姓名：贾国龙 学号：22070809</p>
+<h2 id="1-实验目的"><a href="#1-实验目的" class="headerlink" title="1. 实验目的"></a>1. 实验目的</h2><p>本次实验旨在自行安装好web环境后，自行开发并运行一个web博客，了解和掌握web开发环境的配置，理解web软件的B&#x2F;S框架架构特点以及静态节点和动态节点的区别。</p>
+<h3 id="2-实验环境"><a href="#2-实验环境" class="headerlink" title="2.  实验环境:"></a>2.  <strong>实验环境:</strong></h3><table>
+<thead>
+<tr>
+<th align="center">内容</th>
+<th align="center">版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Windows 11 专业版 25H2</td>
+</tr>
+<tr>
+<td align="center">运行环境</td>
+<td align="center">Node.js 24.18.0</td>
+</tr>
+<tr>
+<td align="center">包管理器</td>
+<td align="center">npm 11.16.0</td>
+</tr>
+<tr>
+<td align="center">代码管理</td>
+<td align="center">Git 2.55.0.windows.2</td>
+</tr>
+<tr>
+<td align="center">构建工具及本地服务器</td>
+<td align="center">Hexo-CLI 4.3.2</td>
+</tr>
+<tr>
+<td align="center">文本编辑器</td>
+<td align="center">VS Code 1.127.0</td>
+</tr>
+</tbody></table>
+<h3 id="3-实验过程"><a href="#3-实验过程" class="headerlink" title="3.  实验过程"></a>3.  实验过程</h3><h4 id="3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环"><a href="#3-1首先安装Node-js以及npm、Git、Hexo-CLI等相关环" class="headerlink" title="3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环"></a>3.1首先安装Node.js以及npm、Git、Hexo-CLI等相关环</h4><h5 id="3-1-1安装Node和npm并验证是否安装成功"><a href="#3-1-1安装Node和npm并验证是否安装成功" class="headerlink" title="3.1.1安装Node和npm并验证是否安装成功"></a>3.1.1安装Node和npm并验证是否安装成功</h5><h5 id="3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱"><a href="#3-1-2-安装git并选择VS-Code作为默认编辑器，并设置全局用户名和邮箱" class="headerlink" title="3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱"></a>3.1.2 安装git并选择VS Code作为默认编辑器，并设置全局用户名和邮箱</h5><h5 id="3-1-3安装Hexo-CLI并验证是否安装成功"><a href="#3-1-3安装Hexo-CLI并验证是否安装成功" class="headerlink" title="3.1.3安装Hexo-CLI并验证是否安装成功"></a>3.1.3安装Hexo-CLI并验证是否安装成功</h5><h4 id="3-2-初始化博客项目"><a href="#3-2-初始化博客项目" class="headerlink" title="3.2 初始化博客项目"></a>3.2 初始化博客项目</h4><p>首先创建Blog文件夹，然后初始化博客项目，并安装项目依赖，完成后得到项目结构如下，可知安装成功。</p>
+<h4 id="3-3本地预览博客"><a href="#3-3本地预览博客" class="headerlink" title="3.3本地预览博客"></a>3.3本地预览博客</h4><h5 id="3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览"><a href="#3-3-1通过hexo提供的本地预览服务，进行简单的本地网页预览" class="headerlink" title="3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览"></a>3.3.1通过hexo提供的本地预览服务，进行简单的本地网页预览</h5><h5 id="3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"><a href="#3-3-2-创建一个新的博客文章，用vs-code编辑器编辑文本内容后保存，然后再启动服务进行本地预览" class="headerlink" title="3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览"></a>3.3.2 创建一个新的博客文章，用vs code编辑器编辑文本内容后保存，然后再启动服务进行本地预览</h5><h4 id="3-4更换主题（可选）"><a href="#3-4更换主题（可选）" class="headerlink" title="3.4更换主题（可选）"></a>3.4更换主题（可选）</h4><p>安装NexT主题</p>
+<p>在next的文件夹下找到配置文件，修改不同的主题</p>
+<p>启动server服务，即可得到不同主题的web网站</p>
+<h4 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4.  实验结果"></a>4.  实验结果</h4><p>最终，我通过下载相关软件、完成本地环境的搭建，使用命令提示符执行相关命令，获取到一个自己的博客静态网站节点，并实现主题的切换，最终结果如下图所示</p>
+<h4 id="5-知识总结"><a href="#5-知识总结" class="headerlink" title="5.  知识总结"></a>5.  知识总结</h4><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">内容</th>
+<th align="center">意义</th>
+<th align="center">注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">下载文件</td>
+<td align="center">国外的网站下载速度一般都很慢，因此要尽可能使用国内的镜像软件下载</td>
+<td align="center">大大提高工作效率</td>
+<td align="center">找到正确的、安全的镜像网站</td>
+</tr>
+<tr>
+<td align="center">静态节点</td>
+<td align="center">指将本地的代码文件转化为网站上的可视化图形</td>
+<td align="center">兼顾对外展示和对内维护</td>
+<td align="center">构建、维护的代码仍需要不断加强学习</td>
+</tr>
+<tr>
+<td align="center">命令提示符</td>
+<td align="center">命令提示符不仅用于打开本地文件，也可用于从网上下载资源。</td>
+<td align="center">将图形化页面转为最原始的代码页面，提高程序员思维能力</td>
+<td align="center">各个命令要不断加以总结和记忆</td>
+</tr>
+<tr>
+<td align="center">Hexo-CLI</td>
+<td align="center">作为博客网站部署的地基，配置好初始化的博客项目，以及执行相关命令和提供本地预览服务</td>
+<td align="center">提高程序员搭建网站的效率</td>
+<td align="center">要知其然更要知其所以然，要理解hexo的背后工作逻辑</td>
+</tr>
+<tr>
+<td align="center">Git代码管理和版本控制</td>
+<td align="center">Git的速度极快、且只是对比差异项座位版本区别，具有高效率、小体积等优点</td>
+<td align="center">给大型项目以更多的容错率</td>
+<td align="center">注意git的使用项目和说明手册</td>
+</tr>
+</tbody></table>
+<h4 id="6-出现问题"><a href="#6-出现问题" class="headerlink" title="6.  出现问题"></a>6.  出现问题</h4><p>本次实验中，我主要出现了以下问题，并提供了相应的解决方案：</p>
+<ul>
+<li>环境配置问题，面对国外网站打不开、下载慢的问题，我采用了国内镜像网站作为替代。</li>
+<li>代码编辑问题，有许多代码书写规范，我翻了很多错误，然后我查阅相关资料并自学后一一改正。</li>
+</ul>
+<h4 id="7-心得体会"><a href="#7-心得体会" class="headerlink" title="7.  心得体会"></a>7.  <strong>心得体会</strong></h4><p>本次实验中，我跟着实验手册完成了一个最简单博客网站的搭建，但是如同雾里看花始终不清楚内在逻辑，因此下一步我将搞明白这一本地博客、web环境的底层逻辑。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" data-id="cuidTs-nB_HWis1NHqN_L3l5g" data-title="实验一：Web环境配置与静态节点构建" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          实验四：Linux基础操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/07/09/%E5%AE%9E%E9%AA%8C%E4%B8%89/%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">实验三：虚拟机的安装与使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E4%B8%83/%E5%AE%9E%E9%AA%8C%E4%B8%83%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/">实验七：远程管理</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/12/%E5%AE%9E%E9%AA%8C%E5%85%AB/%E5%AE%9E%E9%AA%8C%E5%85%AB%EF%BC%9AWeb%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/">实验八：Web软件部署</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/11/%E5%AE%9E%E9%AA%8C%E5%85%AD/%E5%AE%9E%E9%AA%8C%E5%85%AD%EF%BC%9ALinux%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">实验六：Linux环境配置</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E4%BA%94/%E5%AE%9E%E9%AA%8C%E4%BA%94%EF%BC%9ALinux%E8%B4%A6%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">实验五：Linux账户与权限管理</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/10/%E5%AE%9E%E9%AA%8C%E5%9B%9B/%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9ALinux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">实验四：Linux基础操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
